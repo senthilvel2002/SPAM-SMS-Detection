@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | Spam Email Detector</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .login-container {
+            background: #fff;
+            padding: 32px 36px 24px 36px;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+            max-width: 350px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 18px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 7px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        button {
+            width: 100%;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 11px 0;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .error {
+            color: #c0392b;
+            background: #ffe5e5;
+            border: 1px solid #c0392b;
+            border-radius: 5px;
+            padding: 8px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <form method="post">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required autofocus>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
