@@ -121,12 +121,69 @@
             80% { transform: scale(1.1); opacity: 1; }
             100% { transform: scale(1); }
         }
+        .footer {
+            width: 100%;
+            padding: 24px 0 16px 0;
+            background: rgba(255,255,255,0.0);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-top: 40px;
+        }
+        .footer-text {
+            margin-bottom: 10px;
+        }
+        .animated-gradient-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 200% 200%;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: gradientMove 3s linear infinite;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .footer-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.2s;
+        }
+        .footer-icons a:hover {
+            transform: scale(1.2) rotate(-8deg);
+        }
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+        .welcome-animated {
+            display: inline-block;
+            font-size: 1.15em;
+            font-weight: 600;
+            background: linear-gradient(90deg, #23a6d5, #e73c7e, #ee7752, #23d5ab);
+            background-size: 200% 200%;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: gradientMove 2.5s linear infinite, fadeInUp 1s;
+            letter-spacing: 1px;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px);}
+            100% { opacity: 1; transform: translateY(0);}
+        }
     </style>
 </head>
 <body>
     <div class="wave-bg"></div>
     <div class="container">
         <h1>Spam Email Detector</h1>
+        <div class="welcome-message">
+            <span class="welcome-animated">👋 Welcome! Instantly detect spam messages below.</span>
+        </div>
         <div class="info">
             Enter your email message below and click <b>Check</b> to see if it's classified as spam or not.
         </div>
@@ -154,6 +211,23 @@
             </div>
         {% endif %}
     </div>
+    <!-- Stylish Animated Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <span class="animated-gradient-text">Created by Senthil Vel</span>
+        </div>
+        <div class="footer-icons">
+            <a href="https://www.instagram.com/juicee_xent/" target="_blank" title="Instagram">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="7" fill="#E1306C"/><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8A4.8 4.8 0 1 0 12 7.2Z" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/senthilvels2002/" target="_blank" title="LinkedIn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="7" fill="#0077B5"/><path d="M7 17V10H10V17H7ZM8.5 8.5C7.67 8.5 7 7.83 7 7C7 6.17 7.67 5.5 8.5 5.5C9.33 5.5 10 6.17 10 7C10 7.83 9.33 8.5 8.5 8.5ZM14 17V13.5C14 12.67 14.67 12 15.5 12C16.33 12 17 12.67 17 13.5V17H14Z" fill="#fff"/></svg>
+            </a>
+            <a href="https://github.com/senthilvel2002" target="_blank" title="GitHub">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="7" fill="#333"/><path d="M12 2C6.48 2 2 6.58 2 12.26C2 16.62 4.87 20.26 8.84 21.5C9.34 21.59 9.5 21.29 9.5 21.04C9.5 20.82 9.49 20.18 9.49 19.38C7 19.91 6.48 18.36 6.48 18.36C6.04 17.23 5.37 16.93 5.37 16.93C4.37 16.27 5.45 16.29 5.45 16.29C6.56 16.38 7.13 17.53 7.13 17.53C8.12 19.25 9.84 18.77 10.54 18.5C10.64 17.77 10.92 17.28 11.23 17.03C8.98 16.78 6.62 15.93 6.62 12.67C6.62 11.7 6.97 10.93 7.54 10.32C7.44 10.07 7.13 9.13 7.63 7.84C7.63 7.84 8.36 7.57 9.5 8.43C10.18 8.24 10.92 8.14 11.66 8.14C12.4 8.14 13.14 8.24 13.82 8.43C14.96 7.57 15.69 7.84 15.69 7.84C16.19 9.13 15.88 10.07 15.78 10.32C16.35 10.93 16.7 11.7 16.7 12.67C16.7 15.94 14.33 16.77 12.08 17.02C12.48 17.34 12.85 18.01 12.85 19.01C12.85 20.38 12.84 21.47 12.84 21.97C12.84 22.22 13 22.53 13.5 22.44C17.47 21.2 20.34 17.56 20.34 13.2C20.34 6.58 15.52 2 12 2Z" fill="#fff"/></svg>
+            </a>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
     particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/demo/particles.json');
