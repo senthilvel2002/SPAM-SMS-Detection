@@ -133,7 +133,7 @@
         .footer-text {
             margin-bottom: 10px;
         }
-        .animated-gradient-text {
+        .animated-gradient-text, .welcome-animated {
             font-size: 1.2em;
             font-weight: bold;
             background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -141,23 +141,25 @@
             color: transparent;
             background-clip: text;
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             animation: gradientMove 3s linear infinite;
+            -webkit-animation: gradientMove 3s linear infinite;
         }
         @keyframes gradientMove {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
-        .footer-icons a {
-            display: inline-block;
-            margin: 0 10px;
-            transition: transform 0.2s;
+        @-webkit-keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
-        .footer-icons a:hover {
-            transform: scale(1.2) rotate(-8deg);
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px);}
+            100% { opacity: 1; transform: translateY(0);}
         }
-        .welcome-message {
-            text-align: center;
-            margin-bottom: 18px;
+        @-webkit-keyframes fadeInUp {
+            0% { opacity: 0; -webkit-transform: translateY(30px);}
+            100% { opacity: 1; -webkit-transform: translateY(0);}
         }
         .welcome-animated {
             display: inline-block;
@@ -168,12 +170,23 @@
             color: transparent;
             background-clip: text;
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             animation: gradientMove 2.5s linear infinite, fadeInUp 1s;
+            -webkit-animation: gradientMove 2.5s linear infinite, fadeInUp 1s;
             letter-spacing: 1px;
         }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px);}
-            100% { opacity: 1; transform: translateY(0);}
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px 5px 10px 5px;
+                max-width: 98vw;
+            }
+            .welcome-animated, .animated-gradient-text {
+                font-size: 1em;
+            }
+            h1 {
+                font-size: 1.3em;
+            }
         }
     </style>
 </head>
